@@ -1,6 +1,6 @@
 import React from 'react'
-import Rest from '../../utils/rest'
 import { Link } from 'react-router-dom'
+import Rest from '../../utils/rest'
 
 const baseUrl = 'https://mymoney-10de2.firebaseio.com/'
 const { useGet } = Rest(baseUrl)
