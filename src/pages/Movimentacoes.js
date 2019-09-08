@@ -60,11 +60,11 @@ const Movimentacoes = ({ match }) => {
       {
         !dataMeses.loading && dataMeses.data && <div>
           <span>Previsão Entrada: {dataMeses.data.previsao_entrada}</span> <input type='text' onBlur={alterarPrevisaoEntrada} /> 
-          &nbsp;&nbsp;&nbsp;Previsão saida: {dataMeses.data.previsao_saida} <input type='text' onBlur={alterarPrevisaoSaida} /><br/>
-          Entrada: {dataMeses.data.entradas}
+          &nbsp;&nbsp;&nbsp;Previsão saida: {dataMeses.data.previsao_saida} <input type='text' onBlur={alterarPrevisaoSaida} />
+          &nbsp;&nbsp;&nbsp;Entrada: {dataMeses.data.entradas}
           &nbsp;&nbsp;&nbsp;Saidas: {dataMeses.data.saidas}
         </div>
-      }
+      }<br/>
       <table className='container table table-striped'>
         <thead className='thead-dark'>
           <tr className='text-center'>
@@ -93,10 +93,10 @@ const Movimentacoes = ({ match }) => {
           }
           <tr className='text-center'>
             <td>
-              <input type='text' value={descricao} onChange={onChangeDescricao} />
+              <input className='text-center' placeholder="Adicionar Descrição" type='text' value={descricao} onChange={onChangeDescricao} />
             </td>
             <td>
-              <input type='text' value={valor} onChange={onChangeValor} />
+              <input className='text-center' placeholder="Adicionar Valor" type='text' value={valor} onChange={onChangeValor} />
             </td>
             <td><button className='btn btn-success' onClick={salvarMovimentacao}>Adicionar</button></td>
           </tr>

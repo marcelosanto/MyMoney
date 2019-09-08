@@ -16,7 +16,7 @@ const Meses = () => {
     return (
       <table className='table table-striped'>
         <thead className='table thead-dark'>
-          <tr class="text-center">
+          <tr className="text-center">
             <th>Mês</th>
             <th>Previsão entrada</th>
             <th>Entrada</th>
