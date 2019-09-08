@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Rest from '../utils/rest'
-import { resolve } from 'upath'
 
 const baseUrl = 'https://mymoney-10de2.firebaseio.com/'
 const { useGet, usePost, useDelete, usePatch } = Rest(baseUrl)
@@ -60,17 +59,18 @@ const Movimentacoes = ({ match }) => {
       <h1>Movimentaçoes</h1>
       {
         !dataMeses.loading && dataMeses.data && <div>
-          <span>Previsão Entrada: {dataMeses.data.previsao_entrada}</span> <input type='text' onBlur={alterarPrevisaoEntrada} /> <br/>
-          Previsão saida: {dataMeses.data.previsao_saida} <input type='text' onBlur={alterarPrevisaoSaida} /><br/>
-          Entrada: {dataMeses.data.entradas}<br/>
-          Saidas: {dataMeses.data.saidas}<br/>
+          <span>Previsão Entrada: {dataMeses.data.previsao_entrada}</span> <input type='text' onBlur={alterarPrevisaoEntrada} /> 
+          &nbsp;&nbsp;&nbsp;Previsão saida: {dataMeses.data.previsao_saida} <input type='text' onBlur={alterarPrevisaoSaida} /><br/>
+          Entrada: {dataMeses.data.entradas}
+          &nbsp;&nbsp;&nbsp;Saidas: {dataMeses.data.saidas}
         </div>
       }
-      <table className='container'>
-        <thead>
-          <tr>
+      <table className='container table table-striped'>
+        <thead className='thead-dark'>
+          <tr className='text-center'>
             <th>Descrição</th>
             <th>Valor</th>
+            <th>Ação</th>
           </tr>
         </thead>
         <tbody>
@@ -79,24 +79,26 @@ const Movimentacoes = ({ match }) => {
               .keys(data.data)
               .map(movimentacao => {
                 return (
-                  <tr key={movimentacao}>
+                  <tr className='text-center' key={movimentacao}>
                     <td>{data.data[movimentacao].descricao}</td>
-                    <td className='text-right'>
+                    <td >
                       {data.data[movimentacao].valor} {'  '}
-                      <button className='btn btn-danger' onClick={() => removerMovimentacao(movimentacao)}>-</button>
+                    </td>
+                    <td>
+                    <button className='btn btn-danger' onClick={() => removerMovimentacao(movimentacao)}>excluir</button>
                     </td>
                   </tr>
                 )
               })
           }
-          <tr>
+          <tr className='text-center'>
             <td>
               <input type='text' value={descricao} onChange={onChangeDescricao} />
             </td>
             <td>
               <input type='text' value={valor} onChange={onChangeValor} />
-              <button className='btn btn-success' onClick={salvarMovimentacao}>+</button>
             </td>
+            <td><button className='btn btn-success' onClick={salvarMovimentacao}>Adicionar</button></td>
           </tr>
         </tbody>
       </table>

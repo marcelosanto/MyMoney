@@ -14,9 +14,9 @@ const Meses = () => {
 
   if (Object.keys(data.data).length > 0) {
     return (
-      <table className='table'>
-        <thead>
-          <tr>
+      <table className='table table-striped'>
+        <thead className='table thead-dark'>
+          <tr class="text-center">
             <th>Mês</th>
             <th>Previsão entrada</th>
             <th>Entrada</th>
@@ -30,7 +30,7 @@ const Meses = () => {
               .keys(data.data)
               .map(mes => {
                 return (
-                  <tr key={mes}>
+                  <tr  class="text-center" key={mes}>
                     <td><Link to={`/movimentacoes/${mes}`}>{mes}</Link></td>
                     <td>{data.data[mes].previsao_entrada}</td>
                     <td>{data.data[mes].entradas}</td>
