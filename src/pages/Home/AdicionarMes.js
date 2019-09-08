@@ -30,16 +30,15 @@ const AdicionarMes = () => {
   if(redir !== '') { return <Redirect to={'/movimentacoes/'+ redir}/> }
 
   return (
-    <>
-      <h2>Adicionar mês</h2>
-      <select ref={refAno}>
+    <div className="form-inline">
+      <select className="custom-select my-1 mr-sm-2" ref={refAno}>
         {anos.map(ano => <option key={ano} value={ano}>{ano}</option>)}
-      </select>
-      <select ref={refMes}>
+      </select>&nbsp;
+      <select className="custom-select my-1 mr-sm-2" ref={refMes}>
         {meses.map(zeroPad).map(mes => <option key={mes} value={mes}>{mes}</option>)}
-      </select>
-      <button onClick={verMes}>Adicionar mês</button>
-    </>
+      </select>&nbsp;
+      <button className='btn btn-success' onClick={verMes}>Adicionar Mês</button>
+    </div>
   )
 }
 
