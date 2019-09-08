@@ -59,8 +59,8 @@ const Movimentacoes = ({ match }) => {
     <div className='container'>
       <h1>Movimentaçoes</h1>
       {
-        !dataMeses.loading && <div>
-          Previsão Entrada: {dataMeses.data.previsao_entrada} <input type='text' onBlur={alterarPrevisaoEntrada} /> <br/>
+        !dataMeses.loading && dataMeses.data && <div>
+          <span>Previsão Entrada: {dataMeses.data.previsao_entrada}</span> <input type='text' onBlur={alterarPrevisaoEntrada} /> <br/>
           Previsão saida: {dataMeses.data.previsao_saida} <input type='text' onBlur={alterarPrevisaoSaida} /><br/>
           Entrada: {dataMeses.data.entradas}<br/>
           Saidas: {dataMeses.data.saidas}<br/>
