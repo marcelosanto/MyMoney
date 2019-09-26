@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect} from 'react-router-dom'
 import Rest from '../../utils/rest'
 
 const baseUrl = 'https://mymoney-10de2.firebaseio.com/'
@@ -11,7 +11,9 @@ const Meses = () => {
   if (data.loading) {
     return <span>Carregando...</span>
   }
-
+  if (data.error == 'Permission denied') {
+    return <Redirect to='/login' />
+  }
   if (Object.keys(data.data).length > 0) {
     return (
       <table className='table table-striped'>
