@@ -8,7 +8,7 @@ const Header = () => {
     
       <div className='container'>
       
-        <Link className='navbar-brand' to='/'><img className="d-inline-block align-top"  src={Logo} width="30" height="30"/>  MyMoney</Link>
+        <Link className='navbar-brand' to='/'><img className="d-inline-block align-top" src={Logo} width="30" height="30"/>  MyMoney</Link>
       </div>
 
     </nav>

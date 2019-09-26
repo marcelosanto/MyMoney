@@ -42,15 +42,13 @@ const init = baseUrl => {
         dispatch({ type: 'REQUEST' })
         const res = await axios.get(baseUrl + resource + '.json')
         if (res.data.error && Object.keys(res.data.error).length > 0) {
-          dispatch({ type: 'FAILURE', error: res.data.error})
+          dispatch({ type: 'FAILURE', error: res.data.error })
         } else {
           dispatch({ type: 'SUCCESS', data: res.data })
         }
       } catch (err) {
         dispatch({ type: 'FAILURE', error: ' uknow error' })
       }
-
-
     }
 
     useEffect(() => {

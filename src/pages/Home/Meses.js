@@ -30,7 +30,7 @@ const Meses = () => {
               .keys(data.data)
               .map(mes => {
                 return (
-                  <tr  class="text-center" key={mes}>
+                  <tr  className="text-center" key={mes}>
                     <td><Link to={`/movimentacoes/${mes}`}>{mes}</Link></td>
                     <td>{data.data[mes].previsao_entrada}</td>
                     <td>{data.data[mes].entradas}</td>
